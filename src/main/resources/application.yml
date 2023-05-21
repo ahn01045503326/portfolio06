@@ -1,1 +1,6 @@
+server:
+  port: 8080
+  servlet:
+    application-display-name: shop
+
 
