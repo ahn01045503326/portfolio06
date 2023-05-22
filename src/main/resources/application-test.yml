@@ -1,0 +1,26 @@
+# 포트 설정
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test
+    username: sa
+    password:
+  jpa:
+    properties:
+      # H2
+      hibernate:
+        # 실행되는 쿼리 콘솔 출력
+        show_sql: true
+        # 콘솔창에 출력되는 쿼리를 가독성이 좋게 포맷팅
+        format_sql: true
+    hibernate:
+      # 데이터베이스 초기화 : 기존 테이블 삭제 후 테이블 생성
+      ddl-auto: create
+      # 공급업체에서 만든 SQL
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
