@@ -20,11 +20,20 @@ public class SecurityConfig {
                         .loginPage("/members/login")	// [A] 커스텀 로그인 페이지 지정
                         .usernameParameter("email")	// [C] submit할 아이디
                         .defaultSuccessUrl("/")
-                        .failureUrl("/members/login.error")
-                )
+                        .failureUrl("/members/login/error"))
+
                 .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer
                         .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
-                        .logoutSuccessUrl("/"));
+                        .logoutSuccessUrl("/"))
+
+                .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
+                        .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
+                        .requestMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .anyRequest().authenticated())
+
+                .exceptionHandling(httpSecurityExceptionHandlingConfigurer -> httpSecurityExceptionHandlingConfigurer
+                        .authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
 
         return http.build();
     }
