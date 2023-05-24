@@ -1,6 +1,5 @@
 package ahn.sungsin.shop.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,6 +15,17 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+                .formLogin(login -> login
+                        .loginPage("/members/login")	// [A] 커스텀 로그인 페이지 지정
+                        .usernameParameter("email")	// [C] submit할 아이디
+                        .defaultSuccessUrl("/")
+                        .failureUrl("/members/login.error")
+                )
+                .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
+                        .logoutSuccessUrl("/"));
+
         return http.build();
     }
 
