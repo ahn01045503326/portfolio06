@@ -41,6 +41,6 @@ logging:
             sql: trace
 
 # 상품 이미지 업로드 경로
-itemImgLocation:
+itemImgLocation: /Users/ahn
 # 리소스 업로드 경로
-uploadPath:
+uploadPath: file:///Users/ahn

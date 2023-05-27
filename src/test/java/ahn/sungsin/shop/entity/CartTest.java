@@ -1,7 +1,6 @@
 package ahn.sungsin.shop.entity;
 
 import ahn.sungsin.shop.entity.form.MemberFormDto;
-import ahn.sungsin.shop.repository.CartRepository;
 import ahn.sungsin.shop.repository.MemberRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
@@ -12,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(properties = "spring.config.location = classpath:application-test.yml")
 @Transactional
