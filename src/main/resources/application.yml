@@ -1,6 +1,46 @@
+# 포트 설정
 server:
   port: 8080
+
+# MySQL 연결 설정
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/portfolio06?serverTimezone=UTC
+    username: root
+    password: Sungsin&1
+  jpa:
+    properties:
+# H2
+      hibernate:
+# 실행되는 쿼리 콘솔 출력
+        show_sql: true
+# 콘솔창에 출력되는 쿼리를 가독성이 좋게 포맷팅
+        format_sql: true
+# 공급업체에서 만든 SQL
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create
+
+  # 개발시 cache 설정 false
+  thymeleaf:
+    cache: false
+  # 파일 한 개당 최대 사이즈
   servlet:
-    application-display-name: shop
+    multipart:
+      max-file-size: 20MB
+  # 요청당 최대 파일 크기
+      max-request-size: 100MB
+# 쿼리에 물음표로 출력되는 바인드 파라미터 출력
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
 
-
+# 상품 이미지 업로드 경로
+itemImgLocation:
+# 리소스 업로드 경로
+uploadPath:

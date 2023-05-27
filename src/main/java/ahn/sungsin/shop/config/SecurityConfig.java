@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry -> authorizationManagerRequestMatcherRegistry
                         .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
                         .requestMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/admin/**").permitAll()
                         .anyRequest().authenticated())
 
                 .exceptionHandling(httpSecurityExceptionHandlingConfigurer -> httpSecurityExceptionHandlingConfigurer

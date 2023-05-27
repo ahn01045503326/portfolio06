@@ -1,12 +1,10 @@
 package ahn.sungsin.shop.repository;
 
 import ahn.sungsin.shop.constant.ItemSellStatus;
-import ahn.sungsin.shop.entity.Item;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.TestPropertySource;
 
 @SpringBootTest(properties = "spring.config.location = classpath:application-test.yml")
 class ItemRepositoryTest {

@@ -1,17 +1,19 @@
 package ahn.sungsin.shop.entity;
 
 import ahn.sungsin.shop.constant.ItemSellStatus;
+import ahn.sungsin.shop.entity.form.ItemFormDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
 
 @Entity
 @Table(name="item")
 @Getter
 @Setter
 @ToString
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @Column(name="item_id")
@@ -33,5 +35,17 @@ public class Item {
 
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus; //상품 판매 상태
+
+    public void updateItem(ItemFormDto itemFormDto){
+        this.itemNm = itemFormDto.getItemNm();
+        this.price = itemFormDto.getPrice();
+        this.stockNumber = itemFormDto.getStockNumber();
+        this.itemDetail = itemFormDto.getItemDetail();
+        this.itemSellStatus = itemFormDto.getItemSellStatus();
+    }
+    
+    public void addStock(int stockNumber){
+        this.stockNumber += stockNumber;
+    }
 
 }
