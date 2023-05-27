@@ -1,13 +1,15 @@
 package ahn.sungsin.shop.service;
 
+import ahn.sungsin.shop.dto.ItemSearchDto;
 import ahn.sungsin.shop.entity.Item;
 import ahn.sungsin.shop.entity.ItemImg;
-import ahn.sungsin.shop.entity.form.ItemFormDto;
-import ahn.sungsin.shop.entity.form.ItemImgDto;
+import ahn.sungsin.shop.dto.ItemFormDto;
+import ahn.sungsin.shop.dto.ItemImgDto;
 import ahn.sungsin.shop.repository.ItemImgRepository;
 import ahn.sungsin.shop.repository.ItemRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -79,6 +81,11 @@ public class ItemService {
         }
 
         return item.getId();
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable){
+        return itemRepository.getAdminItemPage(itemSearchDto, pageable);
     }
 
 }

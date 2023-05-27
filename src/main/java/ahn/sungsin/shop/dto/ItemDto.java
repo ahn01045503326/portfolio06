@@ -1,4 +1,4 @@
-package ahn.sungsin.shop.entity.form;
+package ahn.sungsin.shop.dto;
 
 import lombok.Getter;
 import lombok.Setter;

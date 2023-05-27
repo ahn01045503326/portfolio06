@@ -1,7 +1,7 @@
 package ahn.sungsin.shop.entity;
 
 import ahn.sungsin.shop.constant.Role;
-import ahn.sungsin.shop.entity.form.MemberFormDto;
+import ahn.sungsin.shop.dto.MemberFormDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,7 +1,7 @@
 package ahn.sungsin.shop.controller;
 
 import ahn.sungsin.shop.entity.Member;
-import ahn.sungsin.shop.entity.form.MemberFormDto;
+import ahn.sungsin.shop.dto.MemberFormDto;
 import ahn.sungsin.shop.service.MemberService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

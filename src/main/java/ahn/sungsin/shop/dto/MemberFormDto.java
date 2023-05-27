@@ -1,4 +1,4 @@
-package ahn.sungsin.shop.entity.form;
+package ahn.sungsin.shop.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

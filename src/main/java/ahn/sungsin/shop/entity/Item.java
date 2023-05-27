@@ -1,7 +1,7 @@
 package ahn.sungsin.shop.entity;
 
 import ahn.sungsin.shop.constant.ItemSellStatus;
-import ahn.sungsin.shop.entity.form.ItemFormDto;
+import ahn.sungsin.shop.dto.ItemFormDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,7 +43,7 @@ public class Item extends BaseEntity {
         this.itemDetail = itemFormDto.getItemDetail();
         this.itemSellStatus = itemFormDto.getItemSellStatus();
     }
-    
+
     public void addStock(int stockNumber){
         this.stockNumber += stockNumber;
     }
